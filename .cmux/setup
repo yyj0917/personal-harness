@@ -1,0 +1,34 @@
+#!/bin/bash
+# .cmux/setup — runs when `cmux new <branch>` creates a worktree
+# Ensures each agent's worktree has everything it needs to work independently
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --git-common-dir | xargs dirname)"
+
+echo "🔧 Setting up worktree for agent..."
+
+# Symlink environment files from main worktree
+if [ -f "$REPO_ROOT/.env" ]; then
+  ln -sf "$REPO_ROOT/.env" .env
+  echo "  ✅ Linked .env"
+fi
+
+if [ -f "$REPO_ROOT/.env.local" ]; then
+  ln -sf "$REPO_ROOT/.env.local" .env.local
+  echo "  ✅ Linked .env.local"
+fi
+
+# Install dependencies
+if [ -f "pnpm-lock.yaml" ]; then
+  pnpm install --frozen-lockfile 2>/dev/null
+  echo "  ✅ Dependencies installed"
+fi
+
+# Run codegen if needed
+if [ -f "package.json" ] && grep -q '"codegen"' package.json; then
+  pnpm codegen 2>/dev/null
+  echo "  ✅ Codegen completed"
+fi
+
+echo "🚀 Worktree ready for agent work"

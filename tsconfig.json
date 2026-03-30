@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": false,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "paths": {
+      "@project/types": ["./packages/types/src"],
+      "@project/config": ["./packages/config/src"],
+      "@project/repo": ["./packages/repo/src"],
+      "@project/service": ["./packages/service/src"],
+      "@project/runtime": ["./packages/runtime/src"],
+      "@project/ui": ["./packages/ui/src"],
+      "@project/shared/*": ["./packages/shared/*/src"]
+    }
+  },
+  "include": ["packages/*/src/**/*.ts", "packages/*/src/**/*.tsx"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}

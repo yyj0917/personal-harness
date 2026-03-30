@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+.turbo/
+.next/
+out/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+coverage/
+
+# Claude Code local settings (personal, not shared)
+.claude/settings.local.json
+CLAUDE.local.md
+
+# cmux worktrees
+.worktrees/
+
+# Logs
+*.log
+logs/
