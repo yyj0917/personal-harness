@@ -51,6 +51,11 @@ pnpm build            # Production build
 Target: All domains at grade B+ or above.
 Minimum test coverage: 80% for service layer, 60% overall.
 
+## Domain Skills
+→ See `docs/guides/domain-skill-setup-guide.md` for how to create production-grade skills.
+- `/create-skill` — guided skill creation from latest official docs
+- `/refresh-skills` — update all skills to latest versions
+
 ## Agent Guidelines
 - Read this file first, then navigate to linked docs as needed.
 - When unsure about architecture, check `docs/architecture/overview.md`.
